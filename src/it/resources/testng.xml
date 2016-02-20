@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="DemoSuite">
+  <test name="DemoHomePrerequisite">		 
+	<classes>
+	  <class name="test.example.CucumberFeaturesPrerequisiteIT"/>
+	</classes>		
+  </test>
+  <test name="DemoHomeSearch">		 
+	<classes>
+	  <class name="test.example.CucumberFeaturesSearchIT"/>
+	</classes>		
+  </test>
+  
+</suite>
