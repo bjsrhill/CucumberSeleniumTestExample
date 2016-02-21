@@ -2,31 +2,37 @@ package test.example.stepdefs;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.Test;
+import org.testng.asserts.Assertion;
 
-import cucumber.api.java.After;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import test.example.WebDriverFactory;
 import test.example.pageobjects.DemoPageObjects;
 
+/**
+ * Step definition class for DemoSearch.feature
+ * tearDown method runs after all scenarios 
+ * are completed, closing the shared WebDriver
+ * 
+ * @author beverlyshill
+ *
+ */
 public class DemoSearchStepDefs {
-	
+
 	private WebDriver webDriver = WebDriverFactory.getBrowser("Firefox");
 	private DemoPageObjects homePageObjects = new DemoPageObjects(webDriver);
+	private Assertion hardAssert = new Assertion();
 
 	@Then("^Verify that there is a search field that will produce a search for the word \"([^\"]*)\"$")
-	public void verify_that_there_is_a_search_field_that_will_produce_a_search_for_the_word(String searchWord) throws Throwable {
+	public void verify_that_there_is_a_search_field_that_will_produce_a_search_for_the_word(String searchWord)
+			throws Throwable {
 		homePageObjects.performProductSearch(searchWord);
 		Assert.assertTrue(homePageObjects.checkSearchResults());
 	}
-	
+
 	@AfterSuite
-	public void tearDown()
-	{
-		System.out.println("Got to after suite");
+	public void tearDown() {
 		WebDriverFactory.closeDrivers();
 	}
 }

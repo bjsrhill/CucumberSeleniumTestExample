@@ -1,11 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="CucumberSeleniumDemoSuite">
-  <test name="DemoPrerequisite">		 
+  <test name="DemoPrerequisites">		 
 	<classes>
 	  <class name="test.example.CucumberFeaturesPrerequisiteIT"/>
 	  <class name="test.example.stepdefs.DemoPrerequisiteStepDefs"/>
 	</classes>		
-  </test>
+  </test> 
   <test name="DemoSearch">		 
 	<classes>
 	  <class name="test.example.CucumberFeaturesSearchIT"/>

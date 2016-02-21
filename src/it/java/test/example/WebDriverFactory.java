@@ -10,14 +10,19 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import test.example.pageobjects.DemoPageObjects;
 
+/**
+ * Factory class to manage a shared WebDriver
+ * 
+ * @author beverlyshill
+ *
+ */
 public class WebDriverFactory {
 
 	private static Map<String, WebDriver> webDrivers = new HashMap<String, WebDriver>();
 	private static DemoPageObjects homePageObjects = new DemoPageObjects();
 
 	/*
-	 * Factory method for getting browsers of different
-	 * types
+	 * Method for getting browsers of different types
 	 */
 	public static WebDriver getBrowser(String browserName) {
 		WebDriver driver = null;
@@ -52,6 +57,9 @@ public class WebDriverFactory {
 		return driver;
 	}
 
+	/**
+	 * Closes Shared driver
+	 */
 	public static void closeDrivers() {
 		for (String key : webDrivers.keySet()) {
 			System.out.println("The driver key is: " + key);
@@ -59,5 +67,4 @@ public class WebDriverFactory {
 			webDrivers.get(key).quit();
 		}
 	}
-
 }

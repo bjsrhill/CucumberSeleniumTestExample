@@ -8,7 +8,6 @@
         <cucumber.version>1.2.4</cucumber.version>
         <selenium.version>2.52.0</selenium.version>
         <junit.version>4.11</junit.version>
-        <surefire.fork.count>5</surefire.fork.count>
     </properties>
     <dependencies>
         <dependency>
@@ -64,21 +63,6 @@
             <version>1.3.2</version>
         </dependency>
     </dependencies>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.seleniumhq.selenium</groupId>
-                <artifactId>selenium-firefox-driver</artifactId>
-                <version>${selenium.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.seleniumhq.selenium</groupId>
-                        <artifactId>selenium-remote-driver</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
     <build>
         <plugins>
         	<plugin>
@@ -141,14 +125,6 @@
                 </executions>
             </plugin>
             <plugin>
-                <!-- block unit tests execution -->
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.17</version>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-            </plugin>
-            <plugin>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>2.19</version>
                 <executions>
@@ -163,57 +139,14 @@
                 	<suiteXmlFiles>
 						<suiteXmlFile>src/it/resources/testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
-                    <argLine>-Xmx1024m</argLine>
-                    <argLine>-XX:MaxPermSize=1024m</argLine>
                     <systemPropertyVariables>
                          <baseUrl>${siteURL}</baseUrl>
                          <siteTitle>${siteTitle}</siteTitle>
                          <ieSetting>${ieSetting}</ieSetting>
                          <chromeSetting>${chromeSetting}</chromeSetting>
                      </systemPropertyVariables>
-<!--                     <includes> -->
-<!--                         <include>**/*IT.class</include> -->
-<!--                     </includes> -->
                 </configuration>
             </plugin>
         </plugins>
     </build>
-    <profiles>
-        <profile>
-            <id>integration-tests</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>2.19</version>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>integration-test</goal>
-                                    <goal>verify</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                        	<suiteXmlFiles>
-					            <suiteXmlFile>src/it/resources/testng.xml</suiteXmlFile>
-					        </suiteXmlFiles>
-          					<threadCount>10</threadCount>
-                            <argLine>-Duser.language=en</argLine>
-                            <argLine>-Xmx1024m</argLine>
-                            <argLine>-XX:MaxPermSize=1024m</argLine>
-                            <argLine>-Dfile.encoding=UTF-8</argLine>
-                            <useFile>false</useFile>
-                            <configuration>
-                             <systemPropertyVariables>
-                                <baseUrl>${siteURL}</baseUrl>
-                                <siteTitle>${siteTitle}</siteTitle>
-                            </systemPropertyVariables>
-                        </configuration>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>
