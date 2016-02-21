@@ -16,23 +16,17 @@ public class DemoSearchStepDefs {
 	
 	private WebDriver webDriver = WebDriverFactory.getBrowser("Firefox");
 	private DemoPageObjects homePageObjects = new DemoPageObjects(webDriver);
-	
-//	public HomeSearchStepDefs(SharedDriver webDriver) {
-//		this.webDriver = webDriver;
-//		homePageObjects = new HomePageObjects(webDriver);
-//	}
 
 	@Then("^Verify that there is a search field that will produce a search for the word \"([^\"]*)\"$")
 	public void verify_that_there_is_a_search_field_that_will_produce_a_search_for_the_word(String searchWord) throws Throwable {
 		homePageObjects.performProductSearch(searchWord);
 		Assert.assertTrue(homePageObjects.checkSearchResults());
-	 
 	}
 	
-//	@AfterSuite
-//	public void tearDown()
-//	{
-//		System.out.println("Got to after suite");
-//		WebDriverFactory.closeDrivers();
-//	}
+	@AfterSuite
+	public void tearDown()
+	{
+		System.out.println("Got to after suite");
+		WebDriverFactory.closeDrivers();
+	}
 }

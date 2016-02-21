@@ -10,7 +10,6 @@
 	<classes>
 	  <class name="test.example.CucumberFeaturesSearchIT"/>
 	  <class name="test.example.stepdefs.DemoSearchStepDefs"/>
-	  <class name="test.example.stepdefs.DemoStepDefs"/>
 	</classes>		
   </test>
 </suite>
