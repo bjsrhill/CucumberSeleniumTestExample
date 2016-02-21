@@ -1,17 +1,16 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="TestSuite">
-  <test name="DemoHomePrerequisite">		 
+<suite name="CucumberSeleniumDemoSuite">
+  <test name="DemoPrerequisite">		 
 	<classes>
 	  <class name="test.example.CucumberFeaturesPrerequisiteIT"/>
-	  <class name="test.example.stepdefs.DemoSitePrerequisiteStepDefs"/>
+	  <class name="test.example.stepdefs.DemoPrerequisiteStepDefs"/>
 	</classes>		
   </test>
-  <test name="DemoHomeSearch">		 
+  <test name="DemoSearch">		 
 	<classes>
 	  <class name="test.example.CucumberFeaturesSearchIT"/>
-	
-	  <class name="test.example.stepdefs.HomeStepDefs"/>
-	    <class name="test.example.stepdefs.HomeSearchStepDefs"/>
+	  <class name="test.example.stepdefs.DemoSearchStepDefs"/>
+	  <class name="test.example.stepdefs.DemoStepDefs"/>
 	</classes>		
   </test>
 </suite>

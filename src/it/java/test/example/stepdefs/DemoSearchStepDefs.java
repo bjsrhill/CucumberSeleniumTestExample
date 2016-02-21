@@ -10,12 +10,12 @@ import org.testng.annotations.Test;
 import cucumber.api.java.After;
 import cucumber.api.java.en.Then;
 import test.example.WebDriverFactory;
-import test.example.pageobjects.HomePageObjects;
+import test.example.pageobjects.DemoPageObjects;
 
-public class HomeSearchStepDefs {
+public class DemoSearchStepDefs {
 	
 	private WebDriver webDriver = WebDriverFactory.getBrowser("Firefox");
-	private HomePageObjects homePageObjects = new HomePageObjects(webDriver);
+	private DemoPageObjects homePageObjects = new DemoPageObjects(webDriver);
 	
 //	public HomeSearchStepDefs(SharedDriver webDriver) {
 //		this.webDriver = webDriver;

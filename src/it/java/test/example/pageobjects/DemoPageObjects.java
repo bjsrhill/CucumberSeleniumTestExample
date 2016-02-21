@@ -14,16 +14,16 @@ import org.openqa.selenium.WebDriver;
  * @author beverlyshill
  *
  */
-public class HomePageObjects {
+public class DemoPageObjects {
 	
 	private WebDriver webDriver = null;
 	private Properties p = new Properties(System.getProperties());
 
-	public HomePageObjects(WebDriver webDriver) {
+	public DemoPageObjects(WebDriver webDriver) {
 		this.webDriver = webDriver;
 	}
 	
-	public HomePageObjects() {
+	public DemoPageObjects() {
 
 	}
 

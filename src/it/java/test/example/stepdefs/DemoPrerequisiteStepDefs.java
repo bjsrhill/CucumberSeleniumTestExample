@@ -1,29 +1,19 @@
 package test.example.stepdefs;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.Test;
 import org.testng.asserts.Assertion;
 
-import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import test.example.WebDriverFactory;
-import test.example.pageobjects.HomePageObjects;
+import test.example.pageobjects.DemoPageObjects;
 
 
-public class DemoSitePrerequisiteStepDefs {
+public class DemoPrerequisiteStepDefs {
 	
 	private static WebDriver webDriver = WebDriverFactory.getBrowser("Firefox");
-	private HomePageObjects homePageObjects = new HomePageObjects(webDriver);
+	private DemoPageObjects homePageObjects = new DemoPageObjects(webDriver);
 	private Assertion hardAssert = new Assertion();
-	
-//	public DemoSitePrerequisiteStepDefs(SharedDriver webDriver) {
-//		this.webDriver = webDriver;
-//		homePageObjects = new HomePageObjects(webDriver);
-//	}
 	
 	@Given("^that the Demo site has been accessed$")
 	public void that_the_Demo_site_has_been_accessed() throws Throwable {
@@ -39,11 +29,4 @@ public class DemoSitePrerequisiteStepDefs {
 			homePageObjects.fatalExit();
 		}
 	}
-	
-//	@AfterSuite
-//	public void tearDown()
-//	{
-//		WebDriverFactory.closeDrivers();
-//	}
-	
 }

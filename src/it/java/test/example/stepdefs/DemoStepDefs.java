@@ -15,13 +15,13 @@ import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import test.example.WebDriverFactory;
-import test.example.pageobjects.HomePageObjects;
+import test.example.pageobjects.DemoPageObjects;
 
-public class HomeStepDefs {
+public class DemoStepDefs {
 	
 	private Assertion hardAssert = new Assertion();
 	private WebDriver webDriver = WebDriverFactory.getBrowser("Firefox");
-	private HomePageObjects homePageObjects = new HomePageObjects(webDriver);
+	private DemoPageObjects homePageObjects = new DemoPageObjects(webDriver);
 	
 //	public HomeStepDefs(SharedDriver webDriver) {
 //		this.webDriver = webDriver;

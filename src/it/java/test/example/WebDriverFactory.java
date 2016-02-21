@@ -8,21 +8,22 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
-import test.example.pageobjects.HomePageObjects;
+import test.example.pageobjects.DemoPageObjects;
 
 public class WebDriverFactory {
-	
+
 	private static Map<String, WebDriver> webDrivers = new HashMap<String, WebDriver>();
-	private static HomePageObjects homePageObjects = new HomePageObjects();
-	 
+	private static DemoPageObjects homePageObjects = new DemoPageObjects();
+
 	/*
-	 * Factory method for getting browsers
+	 * Factory method for getting browsers of different
+	 * types
 	 */
 	public static WebDriver getBrowser(String browserName) {
 		WebDriver driver = null;
 		String ieSetting = homePageObjects.getIESetting().toString();
 		String chromeSetting = homePageObjects.getChromeSetting().toString();
- 
+
 		switch (browserName) {
 		case "Firefox":
 			driver = webDrivers.get("Firefox");
@@ -34,7 +35,7 @@ public class WebDriverFactory {
 		case "IE":
 			driver = webDrivers.get("IE");
 			if (driver == null) {
-				System.setProperty("webdriver.ie.driver",ieSetting);
+				System.setProperty("webdriver.ie.driver", ieSetting);
 				driver = new InternetExplorerDriver();
 				webDrivers.put("IE", driver);
 			}
@@ -42,7 +43,7 @@ public class WebDriverFactory {
 		case "Chrome":
 			driver = webDrivers.get("Chrome");
 			if (driver == null) {
-				System.setProperty("webdriver.chrome.driver",chromeSetting);
+				System.setProperty("webdriver.chrome.driver", chromeSetting);
 				driver = new ChromeDriver();
 				webDrivers.put("Chrome", driver);
 			}
@@ -50,7 +51,7 @@ public class WebDriverFactory {
 		}
 		return driver;
 	}
-	
+
 	public static void closeDrivers() {
 		for (String key : webDrivers.keySet()) {
 			System.out.println("The driver key is: " + key);
