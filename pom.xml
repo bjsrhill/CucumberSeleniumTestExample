@@ -99,14 +99,14 @@
                     </execution>
                 </executions>
             </plugin>
-<!--             <plugin> -->
-<!--                 <artifactId>maven-compiler-plugin</artifactId> -->
-<!--                 <version>3.1</version> -->
-<!--                 <configuration> -->
-<!--                     <source>1.7</source> -->
-<!--                     <target>1.7</target> -->
-<!--                 </configuration> -->
-<!--             </plugin> -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
@@ -168,6 +168,8 @@
                     <systemPropertyVariables>
                          <baseUrl>${siteURL}</baseUrl>
                          <siteTitle>${siteTitle}</siteTitle>
+                         <ieSetting>${ieSetting}</ieSetting>
+                         <chromeSetting>${chromeSetting}</chromeSetting>
                      </systemPropertyVariables>
 <!--                     <includes> -->
 <!--                         <include>**/*IT.class</include> -->

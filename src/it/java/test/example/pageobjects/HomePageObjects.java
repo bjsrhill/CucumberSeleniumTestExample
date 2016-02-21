@@ -7,7 +7,6 @@ import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import test.example.SharedDriver;
 
 /**
  * Manages the shared WebDriver
@@ -18,25 +17,34 @@ import test.example.SharedDriver;
 public class HomePageObjects {
 	
 	private WebDriver webDriver = null;
+	private Properties p = new Properties(System.getProperties());
 
-	public HomePageObjects(SharedDriver webDriver) {
+	public HomePageObjects(WebDriver webDriver) {
 		this.webDriver = webDriver;
 	}
 	
+	public HomePageObjects() {
+
+	}
+
 	/**
 	 * Reads a property file to obtain a URL
 	 * @return a property object representing the URl to test
 	 */
     public Object getURL() {
-		Properties p =
-                new Properties(System.getProperties());
         return p.getProperty("baseUrl"); 
 	}
     
     public Object getSiteTitle() {
-    	Properties p =
-                new Properties(System.getProperties());
         return p.getProperty("siteTitle");
+    }
+    
+    public Object getChromeSetting() {
+    	return p.getProperty("chromeSetting");
+    }
+    
+    public Object getIESetting() {
+    	return p.getProperty("ieSetting");
     }
 	
     /**

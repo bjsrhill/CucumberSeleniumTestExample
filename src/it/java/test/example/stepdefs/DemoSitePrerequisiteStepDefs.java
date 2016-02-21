@@ -1,28 +1,29 @@
-package test.example;
-
-import java.net.URL;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+package test.example.stepdefs;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.Test;
+import org.testng.asserts.Assertion;
 
+import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import org.testng.asserts.Assertion;
+import test.example.WebDriverFactory;
 import test.example.pageobjects.HomePageObjects;
 
 
 public class DemoSitePrerequisiteStepDefs {
 	
-	private HomePageObjects homePageObjects = null;
-	private WebDriver webDriver;
+	private static WebDriver webDriver = WebDriverFactory.getBrowser("Firefox");
+	private HomePageObjects homePageObjects = new HomePageObjects(webDriver);
 	private Assertion hardAssert = new Assertion();
 	
-	public DemoSitePrerequisiteStepDefs(SharedDriver webDriver) {
-		this.webDriver = webDriver;
-		homePageObjects = new HomePageObjects(webDriver);
-	}
+//	public DemoSitePrerequisiteStepDefs(SharedDriver webDriver) {
+//		this.webDriver = webDriver;
+//		homePageObjects = new HomePageObjects(webDriver);
+//	}
 	
 	@Given("^that the Demo site has been accessed$")
 	public void that_the_Demo_site_has_been_accessed() throws Throwable {
@@ -39,5 +40,10 @@ public class DemoSitePrerequisiteStepDefs {
 		}
 	}
 	
+//	@AfterSuite
+//	public void tearDown()
+//	{
+//		WebDriverFactory.closeDrivers();
+//	}
 	
 }

@@ -1,14 +1,17 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="DemoSuite">
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestSuite">
   <test name="DemoHomePrerequisite">		 
 	<classes>
 	  <class name="test.example.CucumberFeaturesPrerequisiteIT"/>
+	  <class name="test.example.stepdefs.DemoSitePrerequisiteStepDefs"/>
 	</classes>		
   </test>
   <test name="DemoHomeSearch">		 
 	<classes>
 	  <class name="test.example.CucumberFeaturesSearchIT"/>
+	
+	  <class name="test.example.stepdefs.HomeStepDefs"/>
+	    <class name="test.example.stepdefs.HomeSearchStepDefs"/>
 	</classes>		
   </test>
-  
 </suite>
