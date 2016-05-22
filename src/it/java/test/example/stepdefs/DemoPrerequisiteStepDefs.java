@@ -16,7 +16,7 @@ import test.example.pageobjects.DemoPageObjects;
  */
 public class DemoPrerequisiteStepDefs {
 
-	private static WebDriver webDriver = WebDriverFactory.getBrowser("Firefox");
+	private static WebDriver webDriver = WebDriverFactory.getBrowser("Chrome");
 	private DemoPageObjects homePageObjects = new DemoPageObjects(webDriver);
 
 	@Given("^that the Demo site has been accessed$")
