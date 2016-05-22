@@ -20,7 +20,7 @@ import test.example.pageobjects.DemoPageObjects;
  */
 public class DemoSearchStepDefs {
 
-	private WebDriver webDriver = WebDriverFactory.getBrowser("Firefox");
+	private WebDriver webDriver = WebDriverFactory.getBrowser("Chrome");
 	private DemoPageObjects homePageObjects = new DemoPageObjects(webDriver);
 	private Assertion hardAssert = new Assertion();
 
