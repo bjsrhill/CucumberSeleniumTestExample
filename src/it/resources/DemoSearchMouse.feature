@@ -1,4 +1,4 @@
-@DemoHomeSearch
+@DemoHomeSearchMouse
 Feature: Accessing the Demo site using a search field  
 
 	Background:
