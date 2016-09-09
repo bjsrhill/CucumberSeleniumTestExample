@@ -28,7 +28,7 @@ public class DemoSearchStepDefs {
 	public void verify_that_there_is_a_search_field_that_will_produce_a_search_for_the_word(String searchWord)
 			throws Throwable {
 		homePageObjects.performProductSearch(searchWord);
-		Assert.assertFalse(homePageObjects.checkSearchResults());
+		Assert.assertTrue(homePageObjects.checkSearchResults());
 	}
 
 	@AfterSuite
